@@ -1,5 +1,5 @@
-const { trusted } = require("mongoose");
-const mongoose = require("mongose");
+const mongoose = require("mongoose");
+
 const userSchema = new mongoose.Schema(
   {
     email: {
@@ -20,5 +20,7 @@ const userSchema = new mongoose.Schema(
     timestamps: true,
   }
 );
+
 const User = mongoose.model("User", userSchema);
-module.export = User;
+
+module.exports = User;
