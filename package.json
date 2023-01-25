@@ -30,7 +30,8 @@
     "passport": "^0.6.0",
     "passport-google-oauth": "^2.0.0",
     "passport-jwt": "^4.0.1",
-    "passport-local": "^1.0.0"
+    "passport-local": "^1.0.0",
+    "xhr": "^2.6.0"
   },
   "devDependencies": {
     "node-sass": "^8.0.0",
