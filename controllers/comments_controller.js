@@ -9,20 +9,15 @@ module.exports.create = async function (req, res) {
   try {
     let post = await Post.findById(req.body.post);
     if (post) {
-      let comment = await Comment.create({
-        content: req.body.content,
-        post: req.body.post,
-        user: req.user._id,
+      let comment = await Comments.create({
+        content: request.body.content,
+        post: request.body.post,
+        user: request.user._id,
       });
+
+      comment = await comment.populate("user", "name email").execPopulate();
       post.comments.push(comment);
       post.save();
-      comment = await comment
-        .populate({
-          path: "user",
-          model: "User",
-        })
-
-        .execPopulate();
       if (req.xhr) {
         return res.status(200).json({
           data: {
@@ -32,7 +27,7 @@ module.exports.create = async function (req, res) {
         });
       }
 
-      req.flash("success", "Comment published!");
+      req.flash("success", "Comment Added");
       return res.redirect("back");
     }
   } catch (err) {
