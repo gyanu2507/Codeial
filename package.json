@@ -6,7 +6,11 @@
   "scripts": {
     "start": "npx nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
+   
+
   },
+ 
+
   "keywords": [
     "Social",
     "App"
@@ -23,6 +27,7 @@
     "express-ejs-layouts": "^2.5.1",
     "express-session": "^1.17.3",
     "gulp-cssnano": "^2.1.3",
+    "gulp-rev": "^10.0.0",
     "gulp-sass": "^5.1.0",
     "jsonwebtoken": "^9.0.0",
     "kue": "^0.11.6",

@@ -18,11 +18,10 @@ const development = {
   asset_path: "/assets",
   session_cookie_key: "blahsomething",
   db: "codeial_development",
-  google_client_ID:
+  google_clientID:
     "712885130331-kmrv10tcft91hiuj6v9ebo4etpnnq63q.apps.googleusercontent.com",
-  google_client_Secret: "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",
-  google_call_back_URL: "http://localhost:8000/users/auth/google/callback",
-  jwt_secret: "codeial",
+  google_clientSecret: "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",
+  callbackURL: "http://localhost:8000/users/auth/google/callback",
 };
 //     asset_path: './assets',
 //     // session_cookie_key: 'blahsomething',

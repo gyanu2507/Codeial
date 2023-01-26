@@ -13,7 +13,7 @@ class ChatEngine {
     let self = this;
 
     this.socket.on("connect", function () {
-      console.log("Connection Established using Sockets!");
+      //   console.log("Connection Established using Sockets!");
       self.socket.emit("join_room", {
         user_email: self.userEmail,
         chatroom: "codeial",
