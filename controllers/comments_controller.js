@@ -9,15 +9,50 @@ module.exports.create = async function (req, res) {
   try {
     let post = await Post.findById(req.body.post);
     if (post) {
-      let comment = await Comments.create({
-        content: request.body.content,
-        post: request.body.post,
-        user: request.user._id,
+      let comment = await Comment.create({
+        content: req.body.content,
+        post: req.body.post,
+        user: req.user._id,
       });
-
-      comment = await comment.populate("user", "name email").execPopulate();
       post.comments.push(comment);
       post.save();
+
+      // Similar for comments to fetch the user's id!
+      comment = await comment
+        .populate({
+          path: "user",
+          model: "User",
+        })
+        .populate({
+          path: "post",
+          model: "Post",
+          populate: {
+            path: "user",
+            model: "User",
+          },
+        })
+        .execPopulate();
+
+      // when not using redis
+      // commentsMailer.newComment(comment);
+
+      // job variable stores data in itself
+      // let job1 = queue.create("commenter-email", comment).save(function (err) {
+      //   if (err) {
+      //     console.log("Error in sending to the queue", err);
+      //     return;
+      //   }
+      //   console.log("Job enqueued", job1.id);
+      // });
+
+      // let job2 = queue.create("post-owner-email", comment).save(function (err) {
+      //   if (err) {
+      //     console.log("Error in sending to the queue", err);
+      //     return;
+      //   }
+      //   console.log("Job enqueued", job2.id);
+      // });
+
       if (req.xhr) {
         return res.status(200).json({
           data: {
