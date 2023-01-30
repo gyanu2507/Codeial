@@ -1,11 +1,9 @@
-#layout-footer {
-  color: white;
-  background: grey;
-  padding: 5px 10px;
+#footer {
   display: flex;
-  justify-content: flex-start; }
-  #layout-footer a {
+  justify-content: space-between;
+  height: 10vh;
+  background-color: slategray; }
+  #footer #footer-content {
+    margin-top: 0.5rem;
     color: white;
-    text-decoration: none; }
-  #layout-footer .footer-nav ul {
-    list-style: none; }
+    font-family: sans-serif; }

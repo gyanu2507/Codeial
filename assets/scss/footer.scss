@@ -1,18 +1,13 @@
-#layout-footer {
-  color: white;
-  a {
-    color: white;
-    text-decoration: none;
-  }
-
-  background: grey;
-  padding: 5px 10px;
+#footer {
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
+  height: 10vh;
 
-  .footer-nav {
-    ul {
-      list-style: none;
-    }
+  background-color: slategray;
+
+  #footer-content {
+    margin-top: 0.5rem;
+    color: white;
+    font-family: sans-serif;
   }
 }
